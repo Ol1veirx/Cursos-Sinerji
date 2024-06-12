@@ -9,8 +9,9 @@ public class Produto {
         this.desconto = desconto;
     }
 
+    @Override
     public String toString() {
-        double precoFinal = preco * (1 - desconto);
+        double precoFinal = Math.round(preco * (1 - desconto) * 100.0) / 100.0;
         return nome + " tem preco de R$" + precoFinal;
     }
 }
