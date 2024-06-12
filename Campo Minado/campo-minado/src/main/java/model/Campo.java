@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,12 +33,20 @@ public class Campo {
         return marcado;
     }
 
+    void setAberto(boolean aberto) {
+        this.aberto = aberto;
+    }
+
      public boolean isAberto(){
         return aberto;
     }
 
     public boolean isFechado() {
         return !isAberto();
+    }
+
+    public boolean isMinado() {
+        return minado;
     }
 
     public boolean adicionarVizinho(Campo vizinho) {

@@ -1,5 +1,9 @@
+import model.Tabuleiro;
+import view.TabuleiroConsole;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Ola mundo");
+        Tabuleiro tabuleiro = new Tabuleiro(7, 7, 7);
+        new TabuleiroConsole(tabuleiro);
     }
 }
