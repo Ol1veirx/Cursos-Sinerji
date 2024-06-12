@@ -5,11 +5,13 @@ import java.util.List;
 
 import exception.ExplosaoException;
 
-
+// Classe responsavel por cada campo no tabuleiro
 public class Campo {
+    // Posicao de um determinado campo em um tabuleiro
     private final int linha;
     private final int coluna;
 
+    // Informa se esta aberto, minado e marcado
     private boolean aberto;
     private boolean minado;
     private boolean marcado;
@@ -49,6 +51,7 @@ public class Campo {
         return minado;
     }
 
+    // Adiciona a um campo o seu vizinho
     public boolean adicionarVizinho(Campo vizinho) {
         boolean linhaDiferente = linha != vizinho.linha;
         boolean colunaDiferente = coluna != vizinho.coluna;
@@ -69,17 +72,20 @@ public class Campo {
         }
     }
 
+    // Alterna o valor booleano dizendo se o campo esta marcado ou nao
     public void alternarMarcacao() {
         if(!aberto){
             marcado = !marcado;
         }
     }
 
+    // Metodo responsavel por abrir um determinado campo
     boolean abrir() {
 
         if(!aberto && !marcado) {
             aberto = true;
 
+            // Se na abertura o campo estiver minado lancara a exceção de explosao
             if(minado) {
                 throw new ExplosaoException();
             }
@@ -94,31 +100,43 @@ public class Campo {
         }
     }
 
+    // Verifica se os viznhos daquele campo sao seguros
     boolean vizinhacaSegura() {
         return vizinhos.stream().noneMatch(v -> v.minado);
     }
 
+    // Ao ser chamado um determinado campo é minado
     public void minar() {
         minado = true;
     }
 
+    // retornar o objetivo alcançado de acordo com as condições passadas
     public boolean objetivoAlcancado() {
         boolean desvendado = !minado && aberto;
         boolean protegido = minado && marcado;
         return desvendado || protegido;
     }
 
+    // Verifica as minhas na vizinhanca 
     public long minasNaVizinhanca() {
         return vizinhos.stream().filter(v -> v.minado). count();
     }
 
+    // Reinicia o campo
     public void reiniciar() {
         aberto = false;
         minado = false;
         marcado = false;
     }
 
+    //Exibe os caracteres para cada caso
+    @Override
     public String toString(){
+        // Se estiver marcado exibe o "X"
+        // Se for aberto e minado exibe o "*"
+        // Se abrir e houver minhas na vizinhança ira informar quantas minhas podem ter do ao redor
+        // se estiver so aberto exibe o espaco em branco
+        // E fechado exibe "?" - valor padrao
         if(marcado) {
             return "x";
         } else if(aberto && minado) {
