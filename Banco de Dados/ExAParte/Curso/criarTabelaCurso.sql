@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS cursos (
+    id SERIAL NOT NULL PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    descricao VARCHAR(255) NOT NULL,
+    professor VARCHAR(255) NOT NULL
+);
+
+SELECT * FROM cursos;

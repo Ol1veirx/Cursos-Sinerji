@@ -1,14 +1,17 @@
+
 public class Livro {
     private String titulo;
     private String autor;
     private int anoPublicacao;
     private String genero;
+    private boolean disponivel = true;
 
-    public Livro(String titulo, String autor, int anoPublicacao, String genero) {
+    public Livro(String titulo, String autor, int anoPublicacao, String genero, boolean disponivel) {
         this.titulo = titulo;
         this.autor = autor;
         this.anoPublicacao = anoPublicacao;
         this.genero = genero;
+        this.disponivel = disponivel; 
     }
 
     public String getTitulo(){
@@ -43,5 +46,15 @@ public class Livro {
         this.genero = genero;
     }
 
+    public boolean  isDisponivel(){
+        return disponivel;
+    }
 
+    public void marcarLivro() {
+        this.disponivel = false;
+    }
+
+    public void desmarcarLivro(){
+        this.disponivel = true;
+    }
 }
