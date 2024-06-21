@@ -1,0 +1,27 @@
+import Filter from '../components/Filter.jsx';
+import TodosList from '../components/TodosList.jsx';
+import AddTodoModal from '../components/modals/AddToDoModal.jsx';
+import ModalWindow from '../components/modals/ModalWindow.jsx';
+import { useTodos } from '../TodosContext.jsx';
+
+function Home() {
+
+    const store = useTodos()
+
+    return (
+    <>
+    { store.modalIsActive && 
+        <ModalWindow>
+            <AddTodoModal></AddTodoModal>
+        </ModalWindow>
+        }
+        
+            <div className="container">
+                <Filter />
+                <TodosList />
+            </div>
+    </>
+    )
+  }
+  
+  export default Home
