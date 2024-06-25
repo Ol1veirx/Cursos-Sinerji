@@ -1,4 +1,6 @@
 exception\ExplosaoException.class
 Main.class
-Tabuleiro.class
+Model\Tabuleiro.class
+view\TabuleiroConsole.class
+exception\SairException.class
 Model\Campo.class
