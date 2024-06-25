@@ -4,6 +4,7 @@ const students = JSON.parse(data);
 // Nesse documento foi feita toda a logica para ver na pratica o ts juntamente com o html e css, ou seja, na base da web
 // Ele nos ajuda muito a identificar erros e evitar os mesmo também
 
+// Como foi visto, a interface serve como um contrato informando o que o estudante precisa ter
 interface Student {
     id: string,
     firstName: string,
@@ -14,7 +15,7 @@ interface Student {
     dateRegistrationSuspended?: string
 }
 
-// Adicionar uma linha 
+// Adicionar uma linha na tabela preenchendo com as informações do estudante
 function addRow(table : HTMLTableElement, student : Student) {
     
     let tr = table.querySelector("tbody")!.insertRow();
@@ -49,7 +50,7 @@ function addRow(table : HTMLTableElement, student : Student) {
     
 }
 
-// select HTML table
+// Selecionar a tabela HTML
 function selectTable() {
     return <HTMLTableElement>document.querySelector("#students-table");
 }
