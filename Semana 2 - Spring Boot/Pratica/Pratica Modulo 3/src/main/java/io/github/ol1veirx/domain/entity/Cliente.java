@@ -3,6 +3,7 @@ package io.github.dougllasfps.domain.entity;
 import javax.persistence.*;
 import java.util.Set;
 
+// Classe totalmente mapeada utilizando o JPA e suas annotations
 @Entity
 @Table( name = "cliente" )
 public class Cliente {
@@ -15,6 +16,7 @@ public class Cliente {
     @Column(name = "nome", length = 100)
     private String nome;
 
+    // Mapeamento um para muitos
     @OneToMany( mappedBy = "cliente" , fetch = FetchType.LAZY )
     private Set<Pedido> pedidos;
 
