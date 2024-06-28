@@ -16,6 +16,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
 
+// é aqui nesse controller que o usuário vai conseguir tanto criar conta como fazer autenticação
 @RestController
 @RequestMapping("/api/usuarios")
 @RequiredArgsConstructor
