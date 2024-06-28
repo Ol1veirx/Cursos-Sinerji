@@ -1,3 +1,4 @@
+-- Sem a JPA as tabelas são criadas por meio de comandos SQL
 CREATE TABLE CLIENTE (
     ID INTEGER PRIMARY KEY AUTO_INCREMENT,
     NOME VARCHAR(100)

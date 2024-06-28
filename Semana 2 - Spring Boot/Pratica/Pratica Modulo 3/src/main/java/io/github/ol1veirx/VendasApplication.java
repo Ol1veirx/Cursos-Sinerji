@@ -1,9 +1,9 @@
-package io.github.dougllasfps;
+package io.github.ol1veirx;
 
-import io.github.dougllasfps.domain.entity.Cliente;
-import io.github.dougllasfps.domain.entity.Pedido;
-import io.github.dougllasfps.domain.repository.Clientes;
-import io.github.dougllasfps.domain.repository.Pedidos;
+import io.github.ol1veirx.domain.entity.Cliente;
+import io.github.ol1veirx.domain.entity.Pedido;
+import io.github.ol1veirx.domain.repository.Clientes;
+import io.github.ol1veirx.domain.repository.Pedidos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

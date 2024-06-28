@@ -11,6 +11,7 @@ public class ItemPedido {
     @Column(name = "id")
     private Integer id;
 
+    // Mapeamento muitos para um
     @ManyToOne
     @JoinColumn(name = "pedido_id")
     private Pedido pedido;

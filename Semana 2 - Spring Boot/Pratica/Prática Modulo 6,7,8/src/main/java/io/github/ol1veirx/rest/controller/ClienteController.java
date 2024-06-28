@@ -17,6 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/clientes")
+@Api("API de Clientes")
 public class ClienteController {
 
     private Clientes clientes;
@@ -26,7 +27,12 @@ public class ClienteController {
     }
 
     @GetMapping("{id}")
-    public Cliente getClienteById( @PathVariable Integer id ){
+    @ApiOperation("Obter detalhes do cliente")
+    @ApiResponses({
+        @ApiResponse(code = 200, message = "Cliente encontrado"),
+        @ApiResponse(code = 404, message = "Cliente não encontrado")
+    })
+    public Cliente getClienteById( @PathVariable @ApiParam("Id do cliente") Integer id ){
         return clientes
                 .findById(id)
                 .orElseThrow(() ->
@@ -36,12 +42,18 @@ public class ClienteController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
+    @ApiOperation("Salvar um cliente")
+    @ApiResponses({
+        @ApiResponse(code = 201, message = "Cliente salvado com sucesso"),
+        @ApiResponse(code = 400, message = "Erro de validação")
+    })
     public Cliente save( @RequestBody @Valid Cliente cliente ){
         return clientes.save(cliente);
     }
 
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ApiOperation("Deletar um cliente")
     public void delete( @PathVariable Integer id ){
         clientes.findById(id)
                 .map( cliente -> {
@@ -55,6 +67,7 @@ public class ClienteController {
 
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ApiOperation("Atualizar um cliente")
     public void update( @PathVariable Integer id,
                         @RequestBody @Valid Cliente cliente ){
         clientes
