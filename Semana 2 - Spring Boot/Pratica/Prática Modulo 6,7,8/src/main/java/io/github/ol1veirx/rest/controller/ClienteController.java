@@ -15,6 +15,8 @@ import org.springframework.web.server.ResponseStatusException;
 import javax.validation.Valid;
 import java.util.List;
 
+// Assim como os outros conrollers esse é reponsável pelo endpoint de Clientes
+// Ele também ta servido como exemplo para a implementação da melhora na UI do swagger
 @RestController
 @RequestMapping("/api/clientes")
 @Api("API de Clientes")
@@ -26,6 +28,7 @@ public class ClienteController {
         this.clientes = clientes;
     }
 
+    // Graças ao ApiOperation em cada um dos metodos é possivel identificar o cada rota faz
     @GetMapping("{id}")
     @ApiOperation("Obter detalhes do cliente")
     @ApiResponses({
