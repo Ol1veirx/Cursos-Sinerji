@@ -1,0 +1,6 @@
+// Renomear para .env
+
+module.exports = {
+    // Adicionar a chave secreta para autenticação
+    authSecret: ''
+}
